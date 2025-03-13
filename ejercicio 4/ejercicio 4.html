@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Determinar si un número es par o impar</title>
+</head>
+<body>
+  <h1>Determinar si un número es par o impar</h1>
+  <form action="par-impar.php" method="post">
+    <label for="numero">Número:</label>
+    <input type="number" id="numero" name="numero"><br><br>
+    <input type="submit" value="Determinar">
+  </form>
+
+  <?php if (isset($_POST['numero'])) { ?>
+    <h2>Resultado</h2>
+    <p>El número <?php echo $_POST['numero']; ?> es un número entero positivo.</p>
+    <p><?php
+      if ($_POST['numero'] % 2 == 0) {
+        echo "Es par.";
+      } else {
+        echo "Es impar.";
+      }
+    ?></p>
+  <?php } ?>
+</body>
+</html><?php
+  if (isset($_POST['numero'])) {
+    $numero = $_POST['numero'];
+    if ($numero > 0) {
+      if ($numero % 2 == 0) {
+        echo "El número $numero es un número entero positivo y es par.";
+      } else {
+        echo "El número $numero es un número entero positivo y es impar.";
+      }
+    } else {
+      echo "El número $numero no es un número entero positivo.";
+    }
+  }
+?>

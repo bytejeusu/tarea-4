@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Obtener el mayor de dos números enteros negativos</title>
+</head>
+<body>
+  <h1>Obtener el mayor de dos números enteros negativos</h1>
+  <form action="mayor-negativo.php" method="post">
+    <label for="numero1">Número 1:</label>
+    <input type="number" id="numero1" name="numero1"><br><br>
+    <label for="numero2">Número 2:</label>
+    <input type="number" id="numero2" name="numero2"><br><br>
+    <input type="submit" value="Obtener el mayor">
+  </form>
+
+  <?php if (isset($_POST['numero1']) && isset($_POST['numero2'])) { ?>
+    <h2>Resultado</h2>
+    <p>El número más grande entre <?php echo $_POST['numero1']; ?> y <?php echo $_POST['numero2']; ?> es <?php
+      if ($_POST['numero1'] > $_POST['numero2']) {
+        echo $_POST['numero1'];
+      } else {
+        echo $_POST['numero2'];
+      }
+    ?></p>
+  <?php } ?>
+</body>
+</html><?php
+  if (isset($_POST['numero1']) && isset($_POST['numero2'])) {
+    $numero1 = $_POST['numero1'];
+    $numero2 = $_POST['numero2'];
+    if ($numero1 < 0 && $numero2 < 0) {
+      if ($numero1 > $numero2) {
+        echo "El número más grande entre $numero1 y $numero2 es $numero1.";
+      } else {
+        echo "El número más grande entre $numero1 y $numero2 es $numero2.";
+      }
+    } else {
+      echo "Uno o ambos números no son enteros negativos.";
+    }
+  }
+?>

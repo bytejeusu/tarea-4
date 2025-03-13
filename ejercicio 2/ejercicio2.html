@@ -1,0 +1,29 @@
+<?php
+  if (isset($_POST['base']) && isset($_POST['altura'])) {
+    $base = $_POST['base'];
+    $altura = $_POST['altura'];
+    $area = $base * $altura / 2;
+    echo "Area del triángulo: " . number_format($area, 2);
+  }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo del área de un triángulo</title>
+</head>
+<body>
+  <h1>Cálculo del área de un triángulo</h1>
+  <form action="calculo-área-triángulo.php" method="post">
+    <label for="base">Base del triángulo (en metros)</label>
+    <input type="number" id="base" name="base"><br><br>
+    <label for="altura">Altura del triángulo (en metros)</label>
+    <input type="number" id="altura" name="altura"><br><br>
+    <input type="submit" value="Calcular área">
+  </form>
+
+  <?php if (isset($_POST['base']) && isset($_POST['altura'])) { ?>
+    <h2>Resultados</h2>
+    <p>Area del triángulo: <?php echo number_format($_POST['base'] * $_POST['altura'] / 2, 2); ?></p>
+  <?php } ?>
+</body>
+</html>
